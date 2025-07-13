@@ -4,6 +4,7 @@ export type NavbarProps = {
 }
 
 export type NavbarLinks = {
+    id:number;
     title:string;
     route:string;
 }

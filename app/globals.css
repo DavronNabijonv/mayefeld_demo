@@ -1,17 +1,17 @@
-@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
 
-@theme{
-  --color-bg-light:var(#0d0d0d);
-  --color-bg-dark:var(#f2f2f2);
+@import "tailwindcss";
+
+:root{
+  --color-bg-light:#f2f2f2;
+  --color-bg-dark:#0d0d0d;
+
+  /* fonts  */
+  --font-sans: 'TikTok Sans', sans-serif;
 }
 
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 body {
-  font-family: 'TikTok Sans' ,sans-serif;
+  font-family: var(--font-sans);
 }
