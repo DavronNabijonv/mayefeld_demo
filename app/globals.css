@@ -2,11 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme{
   --color-bg-light:var(#0d0d0d);
   --color-bg-dark:var(#f2f2f2);
