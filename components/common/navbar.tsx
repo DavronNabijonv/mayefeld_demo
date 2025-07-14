@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import LogoImg from "../../public/logo.png";
+import LogoImg from "../../public/logo2.png";
 import { NavbarProps } from "@/types";
 import { useState } from "react";
 import { navbarLinks } from "@/constants/data";
@@ -20,8 +20,8 @@ export default function Navbar({ pathName, backFon }: NavbarProps) {
         src={LogoImg}
         alt="Logo image"
         width={200}
-        height={200}
-        className=""
+        height={50}
+        className=" rounded-[100%] object-cover object-center "
         priority
       />
 
