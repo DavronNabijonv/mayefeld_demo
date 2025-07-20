@@ -41,7 +41,7 @@ export default function Navbar({ backFon }: NavbarProps) {
           navbarToggle ? "translate-x-0 z-[22222]" : "translate-x-full"
         }`}
       >
-        {pathNamePage || "Loading..."}
+        {pathNamePage.toUpperCase() || "Loading..."}
       </div>
 
       {/* Navbar menyusi */}
