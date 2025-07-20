@@ -1,8 +1,5 @@
-import Navbar from "@/components/common/navbar";
-import Image from "next/image";
-
-export default function Home() {
-  return <div>
-    <Navbar pathName="/" backFon="light" />
-  </div>;
+// app/page.tsx
+export default function RootPage() {
+  // Bu kod hech qachon ishlamaydi, chunki middleware allaqachon qayta yo'naltiradi
+  return null;
 }

@@ -4,7 +4,7 @@ export const navbarLinks:NavbarLinks[] = [
     {
         id:1,
         title:'Mayerfeld Consulting',
-        route:'/'
+        route:'/home'
     },
     {
         id:2,

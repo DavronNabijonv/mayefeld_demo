@@ -1,5 +1,9 @@
+export type IStringTypes = {
+    title?:string;
+    desc?:string;
+}
+
 export type NavbarProps = {
-    pathName:string;
     backFon:string;
 }
 

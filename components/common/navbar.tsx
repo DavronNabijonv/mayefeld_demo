@@ -8,64 +8,65 @@ import { navbarLinks } from "@/constants/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Navbar({ pathName, backFon }: NavbarProps) {
-  const [navbarTogle, setNavbarTogle] = useState<Boolean>(false);
+export default function Navbar({ backFon }: NavbarProps) {
+  const [navbarToggle, setNavbarToggle] = useState(false);
+  const pathNamePage = usePathname();
 
-  const pathname = usePathname();
+  // Null check va bosh sahifa tekshiruvi
+  const shouldShowNavbar = pathNamePage && pathNamePage !== "/home";
+
+  // Faol linkni aniqlash
+  const isActive = (path: string) => {
+    return (
+      pathNamePage === path || (path !== "/" && pathNamePage?.startsWith(path))
+    );
+  };
 
   return (
-    <div className="max-w-[1200px] w-full m-auto my-5 ">
-      {/* Logo image */}
+    <div className="max-w-[1400px] w-full m-auto my-5 flex items-center">
       <Image
         src={LogoImg}
         alt="Logo image"
         width={200}
         height={50}
-        className=" rounded-[100%] object-cover object-center "
+        className="rounded-[100%] object-cover object-center h-[80px]"
         priority
       />
 
-      {/* page path name */}
+      {/* Pathname ko'rsatish */}
       <div
-        className={`text-[30px]  absolute duration-[0.4s] ${
+        className={`text-[30px] duration-[0.4s] ${
           backFon === "light" ? "text-bg-dark" : "text-bg-light"
-        } top-[66px] bg-[#161616] right-0 w-[60%] h-[100vh] p-[15px] ${
-          navbarTogle
-            ? "transform translate-x-[0%] z-[22222] "
-            : "transform translate-x-[100%]"
-        } `}
+        } p-[15px] ${
+          navbarToggle ? "translate-x-0 z-[22222]" : "translate-x-full"
+        }`}
       >
-        | {pathName}
+        {pathNamePage || "Loading..."}
       </div>
 
-      {/* navbar menu btn */}
-      {pathName !== "/" && (
-        <div className="">
-          {/* main navbar items */}
-          <div className="">
-            <div className="flex flex-col gap-5 px-3 ">
-              {navbarLinks.map((item, index) => (
-                <Link key={index} href={item.route}>
-                  <div
-                    className={` border-b-1 pb-2 pl-2 hover:text-[#08528f] ${
-                      backFon === "light" ? "border-bg-dark" : "border-bg-light"
-                    } ${
-                        pathname === item.route ? "text-blue-500 font-bold" : ""
-                    }`}
-                  ></div>
-                </Link>
-              ))}
-            </div>
+      {/* Navbar menyusi */}
+      {shouldShowNavbar && (
+        <div>
+          <div className="flex flex-col gap-5 px-3">
+            {navbarLinks.map((item) => (
+              <Link key={item.route} href={item.route}>
+                <div
+                  className={`border-b-1 pb-2 pl-2 hover:text-[#08528f] ${
+                    backFon === "light" ? "border-bg-dark" : "border-bg-light"
+                  } ${isActive(item.route) ? "text-blue-500 font-bold" : ""}`}
+                >
+                  {item.title}
+                </div>
+              </Link>
+            ))}
           </div>
 
-          {/* overflow */}
-          <div
-            className={`absolute w-full h-full z-[999] top-0 left-0 right-0 bottom-0 ${
-              navbarTogle ? "flex" : "hidden"
-            } `}
-            onClick={() => setNavbarTogle(false)}
-          ></div>
-          {/* overflow */}
+          {navbarToggle && (
+            <div
+              className="fixed inset-0 z-[999] bg-black bg-opacity-50"
+              onClick={() => setNavbarToggle(false)}
+            />
+          )}
         </div>
       )}
     </div>
