@@ -26,7 +26,7 @@ export default function Navbar({ backFon }: NavbarProps) {
   };
 
   return (
-    <div className="max-w-[1400px] w-full m-auto my-5 flex items-center justify-between">
+    <div className="max-w-[1400px] w-full m-auto flex items-center justify-between">
       <div className="flex items-center gap-4">
         <Image
           src={LogoImg}
