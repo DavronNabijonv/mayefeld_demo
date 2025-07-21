@@ -1,16 +1,14 @@
 import Navbar from "@/components/common/navbar";
 import { navbarLinks } from "@/constants/data";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
+import BackImage from "../../assets/dark.png";
 
 export default function HomePage() {
-
-
-    // keyingi shu prayektga kirganingda linklar hover effectini sihlatib qo`y hozir ishlamaybdi.
-
   return (
-    <div className="min-lg:max-w-[1400px] max-lg:px-4 w-full mx-auto">
+    <div className="min-lg:max-w-[1400px] max-lg:px-4 w-full mx-auto ">
       <Navbar backFon="light" />
 
       <div className="main_section flex flex-col gap-10 items-start justify-between h-full ">
@@ -25,10 +23,10 @@ export default function HomePage() {
             <Link
               href={link.route}
               key={index}
-              className="group max-w-[500px] w-full border-b-2 px-3 pb-1 mt-3 text-[20px] flex gap-4 items-center justify-between hover:text-white transition-all duration-300"
+              className="group max-w-[500px] w-full border-b-2 px-3 hover:text-stone-600 pb-1 mt-3 text-[20px] flex gap-4 items-center justify-between transition-all duration-300"
             >
               {link.title}
-              <span className="rotate-45 transition-transform duration-300 group-hover:rotate-0! group-hover:text-white">
+              <span className="-rotate-45 transition-transform duration-300 group-hover:rotate-0">
                 <FaArrowRight size={18} />
               </span>
             </Link>
